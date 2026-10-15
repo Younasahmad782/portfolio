@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Younus — Web Developer</title>
+  <meta name="description" content="Muhammad Younus is a web developer in Lahore, Pakistan building responsive websites, React applications and WordPress sites — from idea to live deployment.">
+  <meta property="og:title" content="Muhammad Younus — Web Developer">
+  <meta property="og:description" content="Responsive websites, React applications and WordPress sites — from idea to live deployment.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231d5c3f'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Georgia'>MY</text></svg>">
+</head>
+<body>
+
+  <header class="site-nav" id="siteNav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand">Muhammad<span>Younus</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-small btn-whatsapp" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8h-.1c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C4.6 9.2 9.4 4.4 16 4.4S27.4 9.2 27.4 15.8 22.6 27.8 16 27.8zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-1.1-1.2-1.5-.3-.4-.4-.9-.2-1.2.1-.3.7-.3 1.6-.3h.6c.2 0 .5 0 .7.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.4-.3.6l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.3 1.1.3.2.5.2.7.1.2 0 .7-.3 1-1.2.1-.3.1-.5 0-.6 0-.2-.2-.2-.5-.4z" fill="currentColor"/></svg>
+        Hire me
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker reveal">Web Developer · Lahore, Pakistan</p>
+        <h1 class="reveal">I build websites<br>that <em>work</em> for business.</h1>
+        <p class="lead reveal">I'm Muhammad Younus — a web developer crafting responsive websites, React applications and WordPress sites. From first sketch to live deployment, I handle the whole journey.</p>
+        <div class="btn-row reveal">
+          <a class="btn btn-whatsapp btn-large" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8h-.1c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C4.6 9.2 9.4 4.4 16 4.4S27.4 9.2 27.4 15.8 22.6 27.8 16 27.8zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-1.1-1.2-1.5-.3-.4-.4-.9-.2-1.2.1-.3.7-.3 1.6-.3h.6c.2 0 .5 0 .7.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.4-.3.6l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.3 1.1.3.2.5.2.7.1.2 0 .7-.3 1-1.2.1-.3.1-.5 0-.6 0-.2-.2-.2-.5-.4z" fill="currentColor"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a class="btn btn-ghost btn-large" href="#work">See my work</a>
+        </div>
+        <dl class="hero-stats reveal">
+          <div><dt>6+</dt><dd>Projects built</dd></div>
+          <div><dt>Live</dt><dd>Deployed on GitHub Pages</dd></div>
+          <div><dt>12+</dt><dd>Technologies in use</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <p class="section-label reveal">01 — Selected work</p>
+        <h2 class="reveal">Things I've built</h2>
+        <p class="section-intro reveal">Real projects, real code, real deployments — not mockups.</p>
+
+        <div class="project-grid">
+          <article class="project-card featured reveal">
+            <div class="project-top">
+              <h3>BizFlow — Business Management Platform</h3>
+              <span class="tag-live">Full-stack</span>
+            </div>
+            <p>A complete business management system: sales and inventory tracking, supplier management, invoicing with generated PDFs, expenses, profit &amp; loss reports, an AI assistant over real business data, and a full audit log — with role-based access and multi-tenant data isolation enforced on the server.</p>
+            <ul class="tech-tags">
+              <li>React</li><li>TypeScript</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Socket.IO</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/younasahmad782/BizFlow" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Everyday Calculator</h3>
+              <span class="tag-live">Live site</span>
+            </div>
+            <p>A multi-tool utility website: calculator, unit and currency converters, calendar and date tools. Fully responsive, mobile-friendly, SEO-conscious — deployed and maintained on GitHub Pages.</p>
+            <ul class="tech-tags">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://younasahmad782.github.io/everyday-calculator/" target="_blank" rel="noopener">Visit live site →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Blog Dashboard</h3>
+            </div>
+            <p>React dashboard with blog listings, statistics, filtering and Redux-style state management — custom hooks, reusable components and a structured store, built while debugging real build and state issues.</p>
+            <ul class="tech-tags">
+              <li>React</li><li>Vite</li><li>Redux-style state</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Clinic Website</h3>
+            </div>
+            <p>Professional website concept for Pakistani clinics and small businesses: homepage, doctors, services, appointment section and contact — responsive, SEO-friendly and business-focused.</p>
+            <ul class="tech-tags">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Younus Sports Hub</h3>
+            </div>
+            <p>E-commerce-style sports products interface: product listings, categories, login/signup UI and Pakistan-focused pricing — a study in structuring online storefronts.</p>
+            <ul class="tech-tags">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+      <div class="wrap">
+        <p class="section-label reveal">02 — Skills</p>
+        <h2 class="reveal">What I work with</h2>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5 &amp; CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>Responsive web design</li>
+              <li>DOM, events &amp; forms</li>
+              <li>Dynamic UI, filtering &amp; search</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Frameworks &amp; tools</h3>
+            <ul>
+              <li>React &amp; Vite</li>
+              <li>Redux-style state management</li>
+              <li>REST API integration</li>
+              <li>Git &amp; GitHub</li>
+              <li>GitHub Pages deployment</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>CMS &amp; SEO</h3>
+            <ul>
+              <li>WordPress (themes, customization)</li>
+              <li>On-page SEO</li>
+              <li>Meta tags &amp; site structure</li>
+              <li>Technical SEO basics</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3>Also in the toolbox</h3>
+            <ul>
+              <li>Async JavaScript</li>
+              <li>C++ &amp; OOP fundamentals</li>
+              <li>MS Office (Word, Excel, PowerPoint)</li>
+              <li>AI-assisted development workflow</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <p class="section-label reveal">03 — Services</p>
+        <h2 class="reveal">How I can help you</h2>
+        <p class="section-intro reveal">Clear scope, honest timelines, no jargon. Message me on WhatsApp for a free quote.</p>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <h3>Business websites</h3>
+            <p>Professional websites for clinics, shops and small businesses — homepage, services, contact, maps. Mobile-friendly and easy to find on Google.</p>
+            <a class="service-cta" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20need%20a%20business%20website." target="_blank" rel="noopener">Discuss on WhatsApp →</a>
+          </article>
+          <article class="service-card reveal">
+            <h3>Landing pages</h3>
+            <p>Sharp, fast single-page sites for launches, campaigns and personal brands — built to convert visitors into customers.</p>
+            <a class="service-cta" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20need%20a%20landing%20page." target="_blank" rel="noopener">Discuss on WhatsApp →</a>
+          </article>
+          <article class="service-card reveal">
+            <h3>React apps &amp; dashboards</h3>
+            <p>Interactive web apps, dashboards, calculators and data tools — filtering, search, API connections and clean interfaces.</p>
+            <a class="service-cta" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20need%20a%20web%20application." target="_blank" rel="noopener">Discuss on WhatsApp →</a>
+          </article>
+          <article class="service-card reveal">
+            <h3>WordPress sites</h3>
+            <p>WordPress setup, theme customization and content sites you can update yourself — plus basic SEO so people can find you.</p>
+            <a class="service-cta" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20need%20a%20WordPress%20website." target="_blank" rel="noopener">Discuss on WhatsApp →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-alt" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="section-label reveal">04 — About</p>
+          <h2 class="reveal">A developer who ships</h2>
+        </div>
+        <div class="about-body reveal">
+          <p>I'm a beginner-to-intermediate web developer with real project experience — not just tutorials. I build with HTML, CSS, JavaScript and React, and I work AI-assisted: I use modern coding tools to move faster, then read, test, debug and refine everything myself until it works.</p>
+          <p>What that means for you: ideas turn into working websites quickly, problems get fixed instead of hidden, and you always know what's happening with your project. I'm currently looking for junior web developer roles — remote or in Lahore — and freelance projects.</p>
+          <dl class="facts">
+            <div><dt>Experience</dt><dd>Independent web development, 2024 – present</dd></div>
+            <div><dt>Education</dt><dd>1-year Computer Science, GC University Faisalabad (2023 – 2024)</dd></div>
+            <div><dt>Also</dt><dd>FSc Pre-Medical with A+ grade (2019 – 2022)</dd></div>
+            <div><dt>Location</dt><dd>Lahore, Pakistan · open to remote</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="wrap">
+        <p class="section-label reveal">05 — Contact</p>
+        <h2 class="reveal">Let's build something.</h2>
+        <p class="section-intro reveal">The fastest way to reach me is WhatsApp — I usually reply the same day.</p>
+        <div class="btn-row reveal">
+          <a class="btn btn-whatsapp btn-large" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8h-.1c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C4.6 9.2 9.4 4.4 16 4.4S27.4 9.2 27.4 15.8 22.6 27.8 16 27.8zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-1.1-1.2-1.5-.3-.4-.4-.9-.2-1.2.1-.3.7-.3 1.6-.3h.6c.2 0 .5 0 .7.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.4-.3.6l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.3 1.1.3.2.5.2.7.1.2 0 .7-.3 1-1.2.1-.3.1-.5 0-.6 0-.2-.2-.2-.5-.4z" fill="currentColor"/></svg>
+            WhatsApp: +92 345 7305226
+          </a>
+          <a class="btn btn-ghost btn-large" href="mailto:khokharunus782@gmail.com?subject=Project%20inquiry%20from%20your%20portfolio">Email me</a>
+          <button class="btn btn-ghost btn-large" id="copyEmailBtn" type="button">Copy email</button>
+        </div>
+        <p class="contact-alt reveal">
+          Prefer another way?
+          <a href="https://github.com/younasahmad782" target="_blank" rel="noopener">GitHub</a> ·
+          <a href="tel:+923017933040">+92 301 7933040</a> ·
+          <a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Muhammad Younus. Built by hand, one commit at a time.</p>
+      <a href="#top" class="to-top" id="toTop">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a class="wa-float" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8h-.1c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C4.6 9.2 9.4 4.4 16 4.4S27.4 9.2 27.4 15.8 22.6 27.8 16 27.8zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-1.1-1.2-1.5-.3-.4-.4-.9-.2-1.2.1-.3.7-.3 1.6-.3h.6c.2 0 .5 0 .7.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.4-.3.6l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.3 1.1.3.2.5.2.7.1.2 0 .7-.3 1-1.2.1-.3.1-.5 0-.6 0-.2-.2-.2-.5-.4z" fill="currentColor"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
