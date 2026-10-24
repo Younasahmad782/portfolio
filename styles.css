@@ -247,18 +247,6 @@ a { color: var(--green); }
 .service-cta { font-weight: 700; font-size: 14.5px; text-decoration: none; }
 .service-cta:hover { text-decoration: underline; }
 
-/* ---------- Rates banner ---------- */
-.rates-banner {
-  margin-top: 26px; background: var(--green-tint); border: 1px solid #d3e4d8;
-  border-radius: var(--radius); padding: 26px 30px;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-}
-.rates-label { font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
-.rates-prices { font-size: 17px; color: var(--ink); line-height: 1.5; }
-.rates-prices span { color: var(--muted); font-size: 14px; }
-.rates-note { font-size: 14px; color: var(--slate); margin-top: 4px; }
-.rates-banner .btn { white-space: nowrap; }
-
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: start; }
 .about-body p { color: var(--slate); font-size: 16.5px; margin-bottom: 18px; }
