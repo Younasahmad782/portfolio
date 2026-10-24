@@ -65,13 +65,16 @@
   }
 
   /* Main nav (home page). Case-study nav links point at ../index.html#...
-     and are intentionally left alone: that page marks Projects active in HTML. */
+     and are intentionally left alone: that page marks Projects active in HTML.
+     NOTE: these are deliberately NOT named navLinks — the mobile-menu code
+     above owns that name for the menu element, and reusing it here used to
+     shadow it and break the mobile menu entirely. */
   var navEl = document.getElementById('navLinks');
-  var navLinks = navEl ? Array.prototype.slice.call(navEl.querySelectorAll('a[href^="#"]')) : [];
-  var navPairs = navLinks.map(function (a) { return { link: a, target: sectionTarget(a) }; })
+  var navSpyAnchors = navEl ? Array.prototype.slice.call(navEl.querySelectorAll('a[href^="#"]')) : [];
+  var navPairs = navSpyAnchors.map(function (a) { return { link: a, target: sectionTarget(a) }; })
     .filter(function (p) { return p.target; });
   var homeLink = null;
-  navLinks.forEach(function (a) { if (a.getAttribute('href') === '#top') homeLink = a; });
+  navSpyAnchors.forEach(function (a) { if (a.getAttribute('href') === '#top') homeLink = a; });
   var scrollingTo = null, scrollingTimer = null;
   function clearScrollTarget() {
     scrollingTo = null;
@@ -79,12 +82,12 @@
     syncTop();
   }
   function syncTop() {
-    if (!scrollingTo && homeLink && window.scrollY <= 10) setActive(navLinks, homeLink);
+    if (!scrollingTo && homeLink && window.scrollY <= 10) setActive(navSpyAnchors, homeLink);
   }
   if (navPairs.length) {
-    navLinks.forEach(function (a) {
+    navSpyAnchors.forEach(function (a) {
       a.addEventListener('click', function () {
-        setActive(navLinks, a);
+        setActive(navSpyAnchors, a);
         scrollingTo = a.getAttribute('href').slice(1) || 'top';
         if (scrollingTimer) clearTimeout(scrollingTimer);
         scrollingTimer = setTimeout(clearScrollTarget, 2000);
@@ -106,7 +109,7 @@
           var id = pair.link.getAttribute('href').slice(1) || 'top';
           if (scrollingTo && scrollingTo !== id) return; /* still travelling: wait */
           if (scrollingTo === id) clearScrollTarget();
-          setActive(navLinks, pair.link);
+          setActive(navSpyAnchors, pair.link);
         });
       }, { rootMargin: '-30% 0px -65% 0px' });
       navPairs.forEach(function (p) { navSpy.observe(p.target); });
