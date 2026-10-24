@@ -21,12 +21,9 @@ python -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Add your resume
+## Resume
 
-1. Save the PDF as `assets/resume/Muhammad-Younus-Resume.pdf`
-2. In `assets/js/main.js` change `var RESUME_AVAILABLE = false;` to `true`
-
-The Resume links (nav, hero, contact) stay hidden until then.
+The resume PDF is included at `assets/resume/Muhammad-Younus-Resume.pdf`, and the Resume links (nav, hero, contact) are enabled via `RESUME_AVAILABLE = true` in `assets/js/main.js`.
 
 ## Add more project screenshots
 
