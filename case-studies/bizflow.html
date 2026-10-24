@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BizFlow Case Study | Muhammad Younus</title>
+<meta name="description" content="Case study of BizFlow, a multi-tenant business management platform built with React, TypeScript, Node.js, Express, PostgreSQL and Prisma: architecture, security, testing and lessons learned.">
+<link rel="canonical" href="https://younasahmad782.github.io/portfolio/case-studies/bizflow.html">
+<meta name="theme-color" content="#0f6b5c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BizFlow Case Study | Muhammad Younus">
+<meta property="og:description" content="A multi-tenant business management platform: architecture, security, testing and lessons learned.">
+<meta property="og:url" content="https://younasahmad782.github.io/portfolio/case-studies/bizflow.html">
+<meta property="og:image" content="https://younasahmad782.github.io/portfolio/assets/img/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<script>
+  (function () {
+    var d = document.documentElement; d.classList.add('js');
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') d.setAttribute('data-theme', t); } catch (e) {}
+  })();
+</script>
+</head>
+<body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="../index.html" class="brand" aria-label="Muhammad Younus, home"><span class="brand-mark" aria-hidden="true">MY</span><span>Muhammad Younus</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme">
+      <svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      <svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+    </button>
+    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap cs-hero">
+    <p><a href="../index.html#projects">← All projects</a></p>
+    <span class="status">Source-code project · not publicly deployed</span>
+    <h1>BizFlow: a multi-tenant business management platform</h1>
+    <p class="lead">A full-stack application for small and medium businesses in Pakistan, covering customers, inventory, orders, invoices, expenses and employees, with every record scoped to an organization.</p>
+    <dl class="cs-meta">
+      <div><dt>Type</dt><dd>Full-stack web application</dd></div>
+      <div><dt>Frontend</dt><dd>React, TypeScript, Vite, Tailwind CSS</dd></div>
+      <div><dt>Backend</dt><dd>Node.js, Express, Socket.IO</dd></div>
+      <div><dt>Data</dt><dd>PostgreSQL with Prisma</dd></div>
+    </dl>
+    <div class="btn-row">
+      <a class="btn btn-primary btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View source on GitHub</a>
+    </div>
+  </div>
+
+  <div class="wrap cs-layout">
+    <nav class="toc" aria-label="Case study sections" data-spy>
+      <p>On this page</p>
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem &amp; goals</a>
+      <a href="#role">My role</a>
+      <a href="#stack">Technology stack</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#features">Main features</a>
+      <a href="#decisions">Implementation decisions</a>
+      <a href="#challenges">Challenges</a>
+      <a href="#security">Security</a>
+      <a href="#testing">Testing</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#next">Lessons &amp; next steps</a>
+    </nav>
+
+    <div class="cs-body">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>BizFlow manages the day-to-day records of a small business: customers, products and stock, suppliers, orders, invoices, payments, expenses, employees, notifications and an audit trail. Each business is an <em>organization</em>, and every piece of data belongs to exactly one of them. Users sign in, work inside their organization, and see only what their role allows.</p>
+        <div class="callout"><strong>Status:</strong> feature-complete and tested locally, but not publicly deployed. There is no live demo, so this page uses screenshots taken from the running app with fictional seeded data.</div>
+      </section>
+
+      <section id="problem">
+        <h2>Problem and goals</h2>
+        <p>Small businesses need quick answers to a few questions: what is in stock, who owes money, what was spent, and what was earned. BizFlow puts those answers in one application instead of scattered notes and spreadsheets.</p>
+        <ul class="bullets">
+          <li>Keep each organization’s data completely separate from every other organization’s.</li>
+          <li>Give owners, managers, staff and read-only users different, granular permissions.</li>
+          <li>Make every stock change traceable, and make order confirmation all-or-nothing.</li>
+          <li>Produce real PDF invoices and a profit and loss report from actual records.</li>
+          <li>Support local conventions: PKR amounts, the Asia/Karachi time zone, and +92 phone formats.</li>
+          <li>Offer an AI assistant that can never see another organization’s data.</li>
+        </ul>
+      </section>
+
+      <section id="role">
+        <h2>My role</h2>
+        <p>I defined the product scope, reviewed and tested each module, debugged problems and maintain the codebase. The repository README states openly that AI-assisted coding produced much of the initial code. My work was to review, test, debug and harden it, including verifying features by hand against a live PostgreSQL database.</p>
+      </section>
+
+      <section id="stack">
+        <h2>Technology stack</h2>
+        <h3>Frontend</h3>
+        <ul class="badges"><li>React</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>React Router</li><li>Socket.IO client</li></ul>
+        <h3>Backend</h3>
+        <ul class="badges"><li>Node.js</li><li>Express</li><li>TypeScript</li><li>Prisma</li><li>Socket.IO</li><li>Zod</li><li>PDFKit</li><li>bcrypt</li><li>JSON Web Tokens</li></ul>
+        <h3>Database, testing and delivery</h3>
+        <ul class="badges"><li>PostgreSQL</li><li>Vitest</li><li>Supertest</li><li>Playwright</li><li>Docker Compose</li><li>nginx</li><li>GitHub Actions</li></ul>
+      </section>
+
+      <section id="architecture">
+        <h2>Architecture</h2>
+        <p>The browser loads a React single-page app. In the Docker setup, nginx serves the app and forwards <code>/api</code> and Socket.IO traffic to the Express API, which talks to PostgreSQL through Prisma.</p>
+        <div class="diagram">
+          <svg viewBox="0 0 760 330" role="img" aria-labelledby="diag-title diag-desc">
+            <title id="diag-title">BizFlow architecture</title>
+            <desc id="diag-desc">A browser connects over HTTPS to nginx. nginx serves the React single-page app and forwards API requests to the Express API. The API reads and writes PostgreSQL through Prisma, pushes real-time events to the browser over Socket.IO, and can optionally call an OpenAI-compatible AI provider.</desc>
+            <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="arrow-head"/></marker></defs>
+            <rect class="box" x="20" y="125" width="120" height="70" rx="10"/><text x="80" y="156" text-anchor="middle" font-weight="600">Browser</text><text x="80" y="176" text-anchor="middle" class="sub">React SPA</text>
+            <rect class="box" x="210" y="125" width="120" height="70" rx="10"/><text x="270" y="156" text-anchor="middle" font-weight="600">nginx</text><text x="270" y="176" text-anchor="middle" class="sub">TLS, proxy</text>
+            <rect class="box accent" x="400" y="125" width="130" height="70" rx="10"/><text x="465" y="156" text-anchor="middle" font-weight="600">Express API</text><text x="465" y="176" text-anchor="middle" class="sub">REST + Socket.IO</text>
+            <rect class="box" x="610" y="125" width="130" height="70" rx="10"/><text x="675" y="156" text-anchor="middle" font-weight="600">PostgreSQL</text><text x="675" y="176" text-anchor="middle" class="sub">via Prisma</text>
+            <rect class="box dashed" x="400" y="256" width="130" height="56" rx="10"/><text x="465" y="280" text-anchor="middle" font-weight="600">AI provider</text><text x="465" y="298" text-anchor="middle" class="sub">optional</text>
+            <rect class="box" x="210" y="22" width="120" height="56" rx="10"/><text x="270" y="46" text-anchor="middle" font-weight="600">Static SPA</text><text x="270" y="64" text-anchor="middle" class="sub">built assets</text>
+            <path class="arrow" d="M140 160H208" marker-end="url(#ah)"/>
+            <path class="arrow" d="M330 160H398" marker-end="url(#ah)"/>
+            <path class="arrow" d="M530 160H608" marker-end="url(#ah)"/>
+            <path class="arrow" d="M270 124V80" marker-end="url(#ah)"/>
+            <path class="arrow" d="M465 196V254" marker-end="url(#ah)"/>
+            <text x="172" y="150" text-anchor="middle" class="sub">HTTPS</text>
+            <text x="364" y="150" text-anchor="middle" class="sub">/api</text>
+            <text x="569" y="150" text-anchor="middle" class="sub">SQL</text>
+            <text x="80" y="232" text-anchor="middle" class="sub">Socket.IO events return</text>
+            <text x="80" y="248" text-anchor="middle" class="sub">to the browser per org room</text>
+          </svg>
+        </div>
+        <ul class="bullets">
+          <li><strong>Frontend:</strong> React with TanStack Query for server state and React Router for navigation. All calls go through <code>/api</code>.</li>
+          <li><strong>Backend:</strong> Express and TypeScript. Authentication is stateless JWT, and every request resolves its <code>organizationId</code> from the signed-in member.</li>
+          <li><strong>Real time:</strong> Socket.IO rooms, one per organization, authenticated with the same JWT.</li>
+          <li><strong>Database:</strong> PostgreSQL through Prisma with SQL migrations and 28 models.</li>
+        </ul>
+      </section>
+
+      <section id="features">
+        <h2>Main features</h2>
+        <ul class="bullets">
+          <li><strong>Dashboard</strong> with sales, revenue, outstanding amounts, expenses and profit, filtered by date range.</li>
+          <li><strong>Customers, products and suppliers</strong> with search, filters, soft delete and outstanding balances.</li>
+          <li><strong>Inventory</strong> where stock changes (in, out, adjustment, return, damaged) are recorded as movements, with low-stock alerts.</li>
+          <li><strong>Orders</strong> moving from draft to confirmed to completed.</li>
+          <li><strong>Invoices</strong> numbered per organization, exported as PDF, with status derived from payments.</li>
+          <li><strong>Expenses and reports</strong> including a profit and loss report built from database records.</li>
+          <li><strong>Employees</strong> with salary fields protected by a separate permission.</li>
+          <li><strong>Notifications and audit log</strong>: real-time events and a readable history of who did what.</li>
+          <li><strong>AI business assistant</strong> grounded in the organization’s own aggregates.</li>
+        </ul>
+      </section>
+
+      <section id="decisions">
+        <h2>Important implementation decisions</h2>
+        <ul class="bullets">
+          <li><strong>The organization comes from the session, never from the client.</strong> Every query is scoped by <code>organizationId</code>, and Zod strips unknown fields so a request cannot set it.</li>
+          <li><strong>Cross-tenant reads return 404, not 403,</strong> so the API does not reveal that a record exists in another organization.</li>
+          <li><strong>One path for stock changes.</strong> Inventory only changes through a single <code>recordMovement()</code> function, which writes the audit trail.</li>
+          <li><strong>Per-organization numbering</strong> for orders and invoices, and soft deletes through a <code>deletedAt</code> field.</li>
+          <li><strong>Permissions on the server.</strong> Role checks live in backend middleware, not only in the UI.</li>
+          <li><strong>The AI never touches the database.</strong> It receives pre-computed aggregates from a controlled data layer. Without a configured provider, a built-in rule engine answers from the same aggregates.</li>
+        </ul>
+      </section>
+
+      <section id="challenges">
+        <h2>Technical challenges and how I addressed them</h2>
+        <h3>Making order confirmation safe</h3>
+        <p>Confirming an order must deduct stock and create an invoice together, or not at all. The route wraps both steps in a Prisma database transaction, so a failure rolls everything back instead of leaving stock and invoices out of sync.</p>
+        <h3>Ending sessions with stateless tokens</h3>
+        <p>JWTs cannot normally be revoked. Each token carries a version number that must match the member’s current <code>tokenVersion</code>, which is bumped on logout and password change, so old sessions stop working immediately.</p>
+        <h3>Keeping an AI assistant honest</h3>
+        <p>Language models can invent numbers. The assistant is given only verified aggregates, includes source context in its answers, says there is not enough data when that is the case, and carries a verification disclaimer.</p>
+      </section>
+
+      <section id="security">
+        <h2>Security and validation</h2>
+        <ul class="bullets">
+          <li>Passwords are hashed with bcrypt (cost 12). Reset tokens are stored hashed, are single-use and expire after an hour, and the forgot-password endpoint does not reveal whether an email exists.</li>
+          <li>Login and authentication endpoints are rate limited.</li>
+          <li>Request bodies are validated with Zod across the API.</li>
+          <li>The app refuses to start in production without a JWT secret, and configuration comes from environment variables with an <code>.env.example</code>; no secrets are committed.</li>
+          <li>The README documents a security review that found and fixed several real vulnerabilities.</li>
+        </ul>
+      </section>
+
+      <section id="testing">
+        <h2>Testing approach</h2>
+        <p>The backend has Vitest and Supertest suites for authentication, validation, tenant isolation, security attacks and notifications. Four Playwright browser tests cover login, access control and tenant isolation. A GitHub Actions workflow runs linting, type checks, Prisma validation and migrations, the backend tests and build, the Playwright job, the frontend lint, type check and build, and Docker image builds.</p>
+      </section>
+
+      <section id="screenshots">
+        <h2>Screenshots</h2>
+        <p>Captured from the running application with fictional demo data (a made-up store in Lahore).</p>
+        <div class="shots">
+        <figure class="shot">
+          <div class="frame"><img src="../assets/img/bizflow-orders-1440.webp" srcset="../assets/img/bizflow-orders-720.webp 720w, ../assets/img/bizflow-orders-1440.webp 1440w" sizes="(max-width: 640px) 100vw, 420px" width="1440" height="900" loading="lazy" alt="BizFlow orders list with customer, total, order status and payment status columns."></div>
+          <figcaption>Orders: draft, confirmed and completed workflow.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="../assets/img/bizflow-inventory-1440.webp" srcset="../assets/img/bizflow-inventory-720.webp 720w, ../assets/img/bizflow-inventory-1440.webp 1440w" sizes="(max-width: 640px) 100vw, 420px" width="1440" height="900" loading="lazy" alt="BizFlow inventory screen with stock levels and buttons to record stock in, stock out, return, damaged and adjustment movements."></div>
+          <figcaption>Inventory: every change is a recorded movement.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="../assets/img/bizflow-invoices-1440.webp" srcset="../assets/img/bizflow-invoices-720.webp 720w, ../assets/img/bizflow-invoices-1440.webp 1440w" sizes="(max-width: 640px) 100vw, 420px" width="1440" height="900" loading="lazy" alt="BizFlow invoices list with invoice numbers, customers, totals, issue dates and due dates."></div>
+          <figcaption>Invoices: numbered per organization, PDF export.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="../assets/img/bizflow-customers-1440.webp" srcset="../assets/img/bizflow-customers-720.webp 720w, ../assets/img/bizflow-customers-1440.webp 1440w" sizes="(max-width: 640px) 100vw, 420px" width="1440" height="900" loading="lazy" alt="BizFlow customers list with customer type, city, credit limit and number of orders."></div>
+          <figcaption>Customers: profiles, search and filters.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="../assets/img/bizflow-products-1440.webp" srcset="../assets/img/bizflow-products-720.webp 720w, ../assets/img/bizflow-products-1440.webp 1440w" sizes="(max-width: 640px) 100vw, 420px" width="1440" height="900" loading="lazy" alt="BizFlow products list with SKU, cost, selling price, stock and status."></div>
+          <figcaption>Products: SKU, pricing and stock status.</figcaption>
+        </figure>
+        <figure class="shot">
+          <div class="frame"><img src="../assets/img/bizflow-assistant-1440.webp" srcset="../assets/img/bizflow-assistant-720.webp 720w, ../assets/img/bizflow-assistant-1440.webp 1440w" sizes="(max-width: 640px) 100vw, 420px" width="1440" height="900" loading="lazy" alt="BizFlow AI business assistant with suggested questions about sales, stock and expenses."></div>
+          <figcaption>AI assistant: answers from the organization’s own data.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section id="next">
+        <h2>Lessons learned and next steps</h2>
+        <p>The biggest lesson was that generated code is only a starting point. Tenant isolation, transactions and permission checks only became trustworthy once I wrote tests that tried to break them.</p>
+        <h3>Known limitations and planned improvements</h3>
+        <ul class="bullets">
+          <li>Connect a real email provider for password resets.</li>
+          <li>Add a Redis adapter for Socket.IO and move file uploads to object storage before running more than one API instance.</li>
+          <li>Add an Urdu interface; the language setting already exists but the UI is English only.</li>
+          <li>Deploy a public demo so recruiters can try the app.</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View source on GitHub</a>
+          <a class="btn btn-ghost btn-sm" href="../index.html#contact">Get in touch</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p style="margin:0">© <span id="year">2026</span> Muhammad Younus · Lahore, Pakistan</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="../index.html">Home</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
