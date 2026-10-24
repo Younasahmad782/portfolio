@@ -91,7 +91,7 @@
   /* ---- Resume: shown only when a real PDF has been added ----
      1. Put the PDF at assets/resume/Muhammad-Younus-Resume.pdf
      2. Change RESUME_AVAILABLE to true.                                  */
-  var RESUME_AVAILABLE = false;
+  var RESUME_AVAILABLE = true;
   if (RESUME_AVAILABLE) {
     document.querySelectorAll('[data-resume]').forEach(function (el) { el.hidden = false; });
   }
