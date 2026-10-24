@@ -230,6 +230,14 @@ section { scroll-margin-top: calc(var(--nav-h) + 8px); }
 .card-links { display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 600; font-size: .98rem; }
 .card-links a { display: inline-flex; align-items: center; gap: .35rem; }
 .card-links svg { width: 14px; height: 14px; }
+.card-visual {
+  margin: -1.5rem -1.5rem 1.25rem; height: 140px; border-radius: var(--radius) var(--radius) 0 0;
+  display: flex; align-items: flex-end; padding: 1rem 1.25rem;
+  font-size: 1.25rem; font-weight: 700; color: #fff;
+}
+.visual-noor { background: #6f4a24; }
+.visual-calc { background: #8a6420; }
+.visual-blog { background: #3b4a6b; }
 .mini-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .mini { padding: 1.1rem 1.25rem; border: 1px dashed var(--line); border-radius: var(--radius); }
 .mini h3 { font-size: 1.05rem; margin-bottom: .3rem; }
