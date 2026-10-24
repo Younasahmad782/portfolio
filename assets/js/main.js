@@ -43,22 +43,94 @@
     window.addEventListener('resize', function () { if (window.innerWidth > 860) setMenu(false); });
   }
 
-  /* ---- Active section highlighting (nav on home page, table of contents on case study) ---- */
-  var spyLinks = Array.prototype.slice.call(document.querySelectorAll('[data-spy] a[href^="#"], #navLinks a[href^="#"]'));
-  var targets = spyLinks
-    .map(function (a) { var id = a.getAttribute('href').slice(1); return id && id !== 'top' ? document.getElementById(id) : null; })
+  /* ---- Active section highlighting: ONE source of truth (aria-current).
+     Root cause of the old bug: the Home link points to "#top", and the old
+     code mapped "#top" to null, so Home was never observed and could never
+     become active again. Fix: "#top" now maps to the hero section, so the
+     top of the page is a real observed section like any other. Clicks set
+     the active tab immediately; the observer only takes over once the
+     destination section is reached (or the user scrolls manually), so the
+     two never fight. A scroll-position fallback guarantees Home is active
+     at the very top even on viewports taller than the hero. ---- */
+  function setActive(links, activeLink) {
+    links.forEach(function (a) {
+      if (a === activeLink) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function sectionTarget(link) {
+    var id = link.getAttribute('href').slice(1);
+    if (!id || id === 'top') return document.querySelector('.hero') || document.body;
+    return document.getElementById(id);
+  }
+
+  /* Main nav (home page). Case-study nav links point at ../index.html#...
+     and are intentionally left alone: that page marks Projects active in HTML. */
+  var navEl = document.getElementById('navLinks');
+  var navLinks = navEl ? Array.prototype.slice.call(navEl.querySelectorAll('a[href^="#"]')) : [];
+  var navPairs = navLinks.map(function (a) { return { link: a, target: sectionTarget(a) }; })
+    .filter(function (p) { return p.target; });
+  var homeLink = null;
+  navLinks.forEach(function (a) { if (a.getAttribute('href') === '#top') homeLink = a; });
+  var scrollingTo = null, scrollingTimer = null;
+  function clearScrollTarget() {
+    scrollingTo = null;
+    if (scrollingTimer) { clearTimeout(scrollingTimer); scrollingTimer = null; }
+    syncTop();
+  }
+  function syncTop() {
+    if (!scrollingTo && homeLink && window.scrollY <= 10) setActive(navLinks, homeLink);
+  }
+  if (navPairs.length) {
+    navLinks.forEach(function (a) {
+      a.addEventListener('click', function () {
+        setActive(navLinks, a);
+        scrollingTo = a.getAttribute('href').slice(1) || 'top';
+        if (scrollingTimer) clearTimeout(scrollingTimer);
+        scrollingTimer = setTimeout(clearScrollTarget, 2000);
+      });
+    });
+    /* Manual scrolling cancels a click-driven scroll: the observer resumes. */
+    window.addEventListener('wheel', clearScrollTarget, { passive: true });
+    window.addEventListener('touchmove', clearScrollTarget, { passive: true });
+    window.addEventListener('keydown', function (e) {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].indexOf(e.key) !== -1) clearScrollTarget();
+    });
+    if ('IntersectionObserver' in window) {
+      var navSpy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var pair = null;
+          navPairs.forEach(function (p) { if (p.target === en.target) pair = p; });
+          if (!pair) return;
+          var id = pair.link.getAttribute('href').slice(1) || 'top';
+          if (scrollingTo && scrollingTo !== id) return; /* still travelling: wait */
+          if (scrollingTo === id) clearScrollTarget();
+          setActive(navLinks, pair.link);
+        });
+      }, { rootMargin: '-30% 0px -65% 0px' });
+      navPairs.forEach(function (p) { navSpy.observe(p.target); });
+    }
+    window.addEventListener('scroll', syncTop, { passive: true });
+    syncTop();
+  }
+
+  /* Table of contents (case study page only). */
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('[data-spy] a[href^="#"]'));
+  var tocTargets = tocLinks
+    .map(function (a) { var id = a.getAttribute('href').slice(1); return id ? document.getElementById(id) : null; })
     .filter(Boolean);
-  if ('IntersectionObserver' in window && targets.length) {
-    var spy = new IntersectionObserver(function (entries) {
+  if ('IntersectionObserver' in window && tocTargets.length) {
+    var tocSpy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
-        spyLinks.forEach(function (a) {
+        tocLinks.forEach(function (a) {
           if (a.getAttribute('href') === '#' + en.target.id) a.setAttribute('aria-current', 'true');
           else a.removeAttribute('aria-current');
         });
       });
     }, { rootMargin: '-35% 0px -60% 0px' });
-    targets.forEach(function (t) { spy.observe(t); });
+    tocTargets.forEach(function (t) { tocSpy.observe(t); });
   }
 
   /* ---- Reveal on scroll (content is visible by default without JS) ---- */
