@@ -4,25 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Muhammad Younus | Full-Stack Web Developer</title>
-<meta name="description" content="Explore Muhammad Younus's web development portfolio featuring React, TypeScript, Node.js, PostgreSQL, business applications, dashboards, and responsive websites.">
+<meta name="description" content="Muhammad Younus is a Full-Stack Web Developer in Lahore, Pakistan, building business web applications, dashboards and e-commerce sites with React, TypeScript, Node.js and PostgreSQL.">
 <link rel="canonical" href="https://younasahmad782.github.io/portfolio/">
-<meta name="theme-color" content="#0f6b5c">
-
+<meta name="theme-color" content="#0b0c10">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Muhammad Younus">
 <meta property="og:title" content="Muhammad Younus | Full-Stack Web Developer">
-<meta property="og:description" content="React, TypeScript, Node.js and PostgreSQL applications, dashboards and responsive websites. Featured project: BizFlow, a multi-tenant business management platform.">
+<meta property="og:description" content="Muhammad Younus is a Full-Stack Web Developer in Lahore, Pakistan, building business web applications, dashboards and e-commerce sites with React, TypeScript, Node.js and PostgreSQL.">
 <meta property="og:url" content="https://younasahmad782.github.io/portfolio/">
 <meta property="og:image" content="https://younasahmad782.github.io/portfolio/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Muhammad Younus, Full-Stack Web Developer, with a BizFlow orders screen">
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
 <script>
-  /* Set theme before first paint to avoid a flash; also marks JS as available. */
+  /* Set theme before first paint; dark is the default. Also marks JS as available. */
   (function () {
     var d = document.documentElement;
     d.classList.add('js');
@@ -36,12 +37,11 @@
   "name": "Muhammad Younus",
   "jobTitle": "Full-Stack Web Developer",
   "url": "https://younasahmad782.github.io/portfolio/",
+  "image": "https://younasahmad782.github.io/portfolio/assets/img/muhammad-younus-960.jpg",
+  "email": "mailto:khokharunus782@gmail.com",
   "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" },
-  "knowsAbout": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Responsive web design"],
-  "sameAs": [
-    "https://github.com/Younasahmad782",
-    "https://www.linkedin.com/in/muhammad-younus-b658b6275"
-  ]
+  "knowsAbout": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Next.js", "Responsive web design"],
+  "sameAs": ["https://github.com/Younasahmad782", "https://www.linkedin.com/in/muhammad-younus-b658b6275"]
 }
 </script>
 </head>
@@ -62,21 +62,20 @@
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-nav">
+<header class="site-nav" id="siteNav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand" aria-label="Muhammad Younus, home"><span class="brand-mark" aria-hidden="true">MY</span><span>Muhammad Younus</span></a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#top">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li data-resume hidden><a href="assets/resume/Muhammad-Younus-Resume.pdf" download>Resume</a></li>
       </ul>
     </nav>
-    <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme">
+    <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
       <svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
       <svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
     </button>
@@ -92,101 +91,144 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div>
-      <p class="pill"><span class="pill-dot" aria-hidden="true"></span>Open to web development roles, internships &amp; freelance projects</p>
-      <p class="eyebrow">Muhammad Younus · Full-Stack Web Developer</p>
-      <h1 id="hero-title">Full-Stack Web Developer Building Modern Web Applications.</h1>
-      <p class="lead">I build responsive websites, interactive dashboards, and full-stack applications using React, TypeScript, Node.js, Express, and PostgreSQL. I focus on creating practical, reliable web solutions that solve real business problems.</p>
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#projects">View my projects</a>
+      <p class="pill hero-in" style="--i:0"><span class="pill-dot" aria-hidden="true"></span>Available for remote and onsite roles, and client projects</p>
+      <h1 id="hero-title" class="hero-in" style="--i:1">Muhammad Younus</h1>
+      <p class="role hero-in" style="--i:2">Full-Stack Web Developer · Lahore, Pakistan</p>
+      <p class="lead hero-in" style="--i:3">I design and build business web applications, dashboards and e-commerce sites with React, TypeScript, Node.js and PostgreSQL. My focus is software that holds up in daily use: clear interfaces, secure APIs and data that stays correct.</p>
+      <div class="btn-row hero-in" style="--i:4">
+        <a class="btn btn-primary" href="#projects">View projects</a>
         <a class="btn btn-secondary" href="#contact">Contact me</a>
-        <a class="btn btn-ghost" data-resume hidden href="assets/resume/Muhammad-Younus-Resume.pdf" download>
-          <svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Download resume
-        </a>
+        <a class="btn btn-ghost" data-resume hidden href="assets/resume/Muhammad-Younus-Resume.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Resume</a>
       </div>
-      <p class="social-row">
+      <p class="social-row hero-in" style="--i:5">
         <a class="btn btn-ghost btn-sm" href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
         <a class="btn btn-ghost btn-sm" href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
       </p>
     </div>
-    <figure class="hero-visual">
-      <div class="frame">
-        <img src="assets/img/bizflow-video-dashboard.png"
-             sizes="(max-width: 900px) 100vw, 540px"
-             width="1366" height="576" fetchpriority="high"
-             alt="BizFlow dashboard with today's sales, monthly revenue, outstanding payments and net profit cards.">
+    <figure class="hero-visual hero-in" style="--i:3">
+      <div class="portrait">
+        <picture>
+          <source type="image/webp" srcset="assets/img/muhammad-younus-480.webp 480w, assets/img/muhammad-younus-960.webp 960w" sizes="(max-width: 900px) 90vw, 460px">
+          <img src="assets/img/muhammad-younus-960.jpg" width="960" height="960" fetchpriority="high" alt="Portrait of Muhammad Younus in a black blazer and white shirt.">
+        </picture>
       </div>
-      <figcaption>BizFlow, my full-stack business platform: the dashboard, shown with fictional demo data.</figcaption>
+      <div class="hero-card">
+        <img src="assets/img/bizflow-video-dashboard.webp" width="1366" height="576" alt="BizFlow dashboard showing sales, revenue, outstanding payments and net profit cards.">
+        <figcaption>BizFlow dashboard, fictional demo data</figcaption>
+      </div>
     </figure>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section section-alt" id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="prose reveal">
+      <span class="eyebrow">About</span>
+      <h2 id="about-title">Software that fits how a business actually runs</h2>
+      <p>I’m a full-stack web developer based in Lahore. I build responsive websites, dashboards and database-backed applications, and I work across the whole path: interface design, REST APIs, data modelling, testing and deployment.</p>
+      <p>My approach starts with the business problem. For BizFlow, that meant asking what a small shop owner needs to know each day (stock, unpaid invoices, expenses, profit) and designing the data model, permissions and screens around those answers rather than around features for their own sake.</p>
+      <p>I use modern AI coding tools as part of my workflow and treat their output as a draft: I review it, test it, debug it and only ship what I can explain. BizFlow’s repository documents this, including its automated tests and a security review.</p>
+    </div>
+    <dl class="facts reveal">
+      <div><dt>Based in</dt><dd>Lahore, Pakistan · remote-friendly</dd></div>
+      <div><dt>Focus</dt><dd>Business applications, dashboards, e-commerce</dd></div>
+      <div><dt>Main stack</dt><dd>React, TypeScript, Node.js, Express, PostgreSQL</dd></div>
+      <div><dt>Open to</dt><dd>Full-time roles, remote or onsite, and client projects</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Skills &amp; technologies</span>
+      <h2 id="skills-title">Technologies I’ve shipped with</h2>
+      <p>Every item below was used in a project listed on this page.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <h3>Frontend Development</h3>
+        <p class="where">BizFlow, COD landing page, Blog Dashboard</p>
+        <ul class="badges"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li><li>Responsive design</li><li>Accessibility</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Backend Development</h3>
+        <p class="where">BizFlow</p>
+        <ul class="badges"><li>Node.js</li><li>Express</li><li>REST APIs</li><li>Socket.IO</li><li>JWT authentication</li><li>Zod validation</li><li>PDF generation</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Databases</h3>
+        <p class="where">BizFlow</p>
+        <ul class="badges"><li>PostgreSQL</li><li>Prisma ORM</li><li>SQL migrations</li><li>Transactions</li><li>Multi-tenant schema design</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Frameworks &amp; Libraries</h3>
+        <p class="where">BizFlow, COD landing page, Blog Dashboard</p>
+        <ul class="badges"><li>React</li><li>Next.js</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>React Router</li><li>Redux-style state</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Tools &amp; Platforms</h3>
+        <p class="where">All projects</p>
+        <ul class="badges"><li>Git</li><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>nginx</li><li>Vercel</li><li>GitHub Pages</li><li>Vitest</li><li>Supertest</li><li>Playwright</li><li>WordPress</li></ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============ PROJECTS ============ -->
 <section class="section section-alt" id="projects" aria-labelledby="projects-title">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Selected work</span>
-      <h2 id="projects-title">Projects</h2>
-      <p>One in-depth full-stack application, plus smaller sites that are live on the web.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured projects</span>
+      <h2 id="projects-title">Selected work</h2>
+      <p>One in-depth full-stack platform, plus sites that are live on the web.</p>
     </div>
 
-    <!-- Featured: BizFlow -->
     <article class="featured reveal" aria-labelledby="bizflow-title">
       <div class="featured-media">
         <div class="frame">
-          <img src="assets/img/bizflow-video-inventory.png"
-               sizes="(max-width: 960px) 100vw, 620px"
-               width="1366" height="576" loading="lazy"
-               alt="BizFlow inventory screen with a stock-levels table showing product, quantity in stock, reorder level and location, and buttons for stock in, stock out, return, damaged and adjustment.">
+          <img src="assets/img/bizflow-video-inventory.webp" sizes="(max-width: 960px) 100vw, 620px" width="1366" height="576" loading="lazy" alt="BizFlow inventory screen with a stock-levels table showing product, quantity in stock, reorder level and location, and buttons for stock in, stock out, return, damaged and adjustment.">
         </div>
         <ul class="thumbs" aria-label="More BizFlow screenshots">
-          <li><a href="case-studies/bizflow.html#screenshots"><img src="assets/img/bizflow-video-invoice.png" width="1366" height="576" loading="lazy" alt="BizFlow invoice view with bill-to details, totals and balance due."></a></li>
-          <li><a href="case-studies/bizflow.html#screenshots"><img src="assets/img/bizflow-video-orders.png" width="1366" height="576" loading="lazy" alt="BizFlow orders list with totals, status and payment status."></a></li>
-          <li><a href="case-studies/bizflow.html#screenshots"><img src="assets/img/bizflow-video-ai-assistant.png" width="1366" height="576" loading="lazy" alt="BizFlow AI business assistant answering a question from business data."></a></li>
+          <li><a href="case-studies/bizflow.html#screenshots"><img src="assets/img/bizflow-video-invoice.webp" width="1366" height="576" loading="lazy" alt="BizFlow invoice view with bill-to details, totals and balance due."></a></li>
+          <li><a href="case-studies/bizflow.html#screenshots"><img src="assets/img/bizflow-video-orders.webp" width="1366" height="576" loading="lazy" alt="BizFlow orders list with totals, status and payment status."></a></li>
+          <li><a href="case-studies/bizflow.html#screenshots"><img src="assets/img/bizflow-video-ai-assistant.webp" width="1366" height="576" loading="lazy" alt="BizFlow AI business assistant answering a question from business data."></a></li>
         </ul>
       </div>
-
       <div class="featured-body">
-        <span class="status">Source-code project · not publicly deployed</span>
-        <h3 id="bizflow-title">BizFlow: Business Management Platform</h3>
-        <p>A multi-tenant business management application for small and medium businesses in Pakistan: customers, products, inventory, suppliers, orders, invoices, expenses and employees, with every record scoped to an organization and protected by role-based access.</p>
-
+        <span class="status">Source-code project · public demo not deployed yet</span>
+        <h3 id="bizflow-title">BizFlow: business management platform</h3>
+        <p>A multi-tenant application for small and medium businesses in Pakistan, covering customers, products, inventory, suppliers, orders, invoices, expenses and employees. Every record is scoped to an organization and protected by role-based access.</p>
         <h4>Stack</h4>
         <ul class="badges" aria-label="Technology stack">
           <li>React</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Prisma</li><li>Socket.IO</li><li>Docker</li>
         </ul>
-
-        <h4>What it does</h4>
+        <h4>Key features</h4>
         <ul class="check-list">
           <li>Multi-tenant data isolation with role-based permissions enforced on the server</li>
-          <li>Order confirmation runs as one database transaction: stock deduction and invoice creation, with rollback on failure</li>
+          <li>Order confirmation as one database transaction: stock deduction and invoice creation, with rollback on failure</li>
           <li>Every stock change recorded as an auditable inventory movement</li>
-          <li>PDF invoice generation with payment-derived status</li>
-          <li>Expenses and a profit &amp; loss report built from database records</li>
-          <li>Real-time notifications per organization, plus a readable audit log</li>
+          <li>PDF invoices, expenses and a profit and loss report built from real records</li>
+          <li>Real-time notifications per organization and a readable audit log</li>
           <li>AI assistant that answers only from the organization’s own aggregated data</li>
         </ul>
-
-        <h4>My contribution</h4>
-        <p>I specified, reviewed, tested, debugged and hardened the application. It was built with AI-assisted coding, which the repository states openly, and I maintain the codebase.</p>
-
         <div class="btn-row">
           <a class="btn btn-primary btn-sm" href="case-studies/bizflow.html">Read the case study</a>
           <a class="btn btn-ghost btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>Source on GitHub</a>
         </div>
-        <p class="note" style="margin-top:1rem">Screenshots use fictional seeded demo data. There is no public live demo yet.</p>
+        <p class="note" style="margin:1rem 0 0">Screenshots use fictional seeded demo data.</p>
       </div>
     </article>
 
-    <!-- Other projects -->
-    <div class="sub-head reveal">
-      <h3>More projects</h3>
-    </div>
+    <div class="sub-head reveal"><h3>More projects</h3></div>
     <div class="card-grid">
       <article class="card reveal">
-        <div class="card-visual visual-noor" aria-hidden="true"><span>Noor Herbal Hair Oil</span></div>
+        <div class="card-visual visual-noor" aria-hidden="true"><span>Cash-on-delivery landing page</span></div>
         <span class="status live">Live demo</span>
-        <h3>Noor Herbal Hair Oil</h3>
-        <p>A single-product, cash-on-delivery landing page built to a client brief: mobile-first layout, bundle pricing, a validated COD order form and order export. The demo uses sample product content.</p>
+        <h3>COD Landing: Noor Herbal Hair Oil</h3>
+        <p>A single-product landing page for Pakistani cash-on-delivery businesses, built to a client brief: mobile-first layout, bundle pricing, a validated COD order form and order export. The demo uses sample product content.</p>
         <ul class="badges" aria-label="Technologies"><li>Next.js</li><li>React</li><li>Tailwind CSS</li><li>Vercel</li></ul>
         <div class="card-links"><a href="https://pk-cod-landing.vercel.app" target="_blank" rel="noopener noreferrer">Live demo<svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a></div>
       </article>
@@ -197,156 +239,123 @@
         <p>A multi-tool utility site with a calculator, unit and currency converters, and calendar and date tools. Responsive, SEO-conscious and deployed on GitHub Pages.</p>
         <ul class="badges" aria-label="Technologies"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
         <div class="card-links">
-          <a href="https://younasahmad782.github.io/everyday-calculator/" target="_blank" rel="noopener noreferrer">Live site<svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
-          <a href="https://github.com/Younasahmad782/everyday-calculator" target="_blank" rel="noopener noreferrer">Source<svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+          <a href="https://younasahmad782.github.io/everyday-calculator/" target="_blank" rel="noopener noreferrer">Live demo<svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+          <a href="https://github.com/Younasahmad782/everyday-calculator" target="_blank" rel="noopener noreferrer">GitHub<svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
         </div>
       </article>
       <article class="card reveal">
         <div class="card-visual visual-blog" aria-hidden="true"><span>Blog Dashboard</span></div>
         <span class="status">Source project</span>
         <h3>Blog Dashboard</h3>
-        <p>A React dashboard with blog listings, statistics and filtering. It uses Redux-style state management, custom hooks and reusable components.</p>
+        <p>A React dashboard with blog listings, statistics and filtering, built with Redux-style state management, custom hooks and reusable components.</p>
         <ul class="badges" aria-label="Technologies"><li>React</li><li>Vite</li><li>Redux-style state</li></ul>
       </article>
     </div>
 
-    <div class="sub-head reveal">
-      <h3>Concept and practice projects</h3>
-    </div>
+    <div class="sub-head reveal" style="margin-top:3rem"><h3>Concept projects</h3></div>
     <div class="mini-list reveal">
-      <div class="mini">
-        <h3>Clinic Website</h3>
-        <p>Website concept for clinics and small businesses: services, doctors, appointments and contact. HTML, CSS, JavaScript.</p>
-      </div>
-      <div class="mini">
-        <h3>Younus Sports Hub</h3>
-        <p>E-commerce-style storefront study: product listings, categories and login/signup UI. HTML, CSS, JavaScript.</p>
-      </div>
+      <div class="mini"><h3>Clinic Website</h3><p>Website concept for clinics and small businesses: services, doctors, appointments and contact. HTML, CSS, JavaScript.</p></div>
+      <div class="mini"><h3>Younus Sports Hub</h3><p>E-commerce storefront study: product listings, categories and login/signup UI. HTML, CSS, JavaScript.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ SKILLS ============ -->
-<section class="section" id="skills" aria-labelledby="skills-title">
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services" aria-labelledby="services-title">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Skills</span>
-      <h2 id="skills-title">Technologies I’ve used in real projects</h2>
-      <p>Each group names the project where I used it. No percentages: the work is linked above.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2 id="services-title">What I can build for you</h2>
+      <p>From a first website to a database-backed business application.</p>
     </div>
-    <div class="skills-grid">
-      <div class="skill-group reveal">
-        <h3>Frontend</h3>
-        <p class="where">BizFlow, Noor landing page, Blog Dashboard</p>
-        <ul class="badges">
-          <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Redux-style state</li><li>Responsive design</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Backend</h3>
-        <p class="where">BizFlow</p>
-        <ul class="badges">
-          <li>Node.js</li><li>Express</li><li>REST APIs</li><li>Socket.IO</li><li>JWT authentication</li><li>Zod validation</li><li>PDF generation</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Database</h3>
-        <p class="where">BizFlow</p>
-        <ul class="badges">
-          <li>PostgreSQL</li><li>Prisma ORM</li><li>SQL migrations</li><li>Transactions</li><li>Multi-tenant schema design</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Testing &amp; quality</h3>
-        <p class="where">BizFlow</p>
-        <ul class="badges">
-          <li>Vitest</li><li>Supertest</li><li>Playwright</li><li>GitHub Actions CI</li><li>Debugging</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Tools &amp; deployment</h3>
-        <p class="where">All projects</p>
-        <ul class="badges">
-          <li>Git</li><li>GitHub</li><li>GitHub Pages</li><li>Vercel</li><li>Docker</li><li>Docker Compose</li><li>nginx</li>
-        </ul>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Also</h3>
-        <p class="where">Client and freelance work</p>
-        <ul class="badges">
-          <li>WordPress</li><li>On-page SEO</li><li>Responsive design</li><li>API integration</li><li>AI-assisted development</li>
-        </ul>
-      </div>
+    <div class="services-grid reveal">
+      <article class="service"><h3>Full-Stack Web Development</h3><p>React or Next.js frontends with Node.js and Express APIs, PostgreSQL storage, authentication and deployment.</p></article>
+      <article class="service"><h3>Business Websites</h3><p>Fast, responsive, search-friendly websites that explain what a business does and make it easy to get in touch.</p></article>
+      <article class="service"><h3>E-commerce Development</h3><p>Product pages and order flows, including cash-on-delivery landing pages with validated order forms for Pakistani businesses.</p></article>
+      <article class="service"><h3>Website Redesign</h3><p>Rebuilding outdated sites with a cleaner layout, better mobile behaviour and faster load times, keeping the content that matters.</p></article>
+      <article class="service"><h3>Website Maintenance</h3><p>Bug fixes, content and dependency updates, and deployment help for sites on GitHub Pages, Vercel and WordPress.</p></article>
+      <article class="service"><h3>Dashboards &amp; Web Applications</h3><p>Internal tools and admin dashboards: inventory, invoicing, expenses, reports and role-based access.</p></article>
     </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT ============ -->
-<section class="section section-alt" id="about" aria-labelledby="about-title">
-  <div class="wrap about-grid">
-    <div class="prose">
-      <span class="eyebrow">About</span>
-      <h2 id="about-title" style="margin-bottom:1.25rem">Turning requirements into working products</h2>
-      <p>I’m a web developer based in Lahore, focused on responsive websites and full-stack applications. My work includes business management software, dashboards and practical web solutions. I enjoy turning requirements into functional products by combining interface design, backend development, database integration, testing and deployment.</p>
-      <p>I use AI coding tools as part of my workflow, and I treat their output as a draft: I read it, test it, debug it and make sure I understand it before it ships. BizFlow’s repository documents this approach, including its automated tests and a security review.</p>
-    </div>
-    <dl class="facts reveal">
-      <div><dt>Education</dt><dd>1-Year Computer Course, GC University Faisalabad (2023 – 2024)</dd></div>
-      <div><dt>Earlier</dt><dd>FSc Pre-Medical, A+ grade (2019 – 2021)</dd></div>
-      <div><dt>Location</dt><dd>Lahore, Pakistan · open to remote work</dd></div>
-      <div><dt>Looking for</dt><dd>Web development roles, internships and freelance projects</dd></div>
-    </dl>
   </div>
 </section>
 
 <!-- ============ EXPERIENCE ============ -->
-<section class="section" id="experience" aria-labelledby="experience-title">
+<section class="section section-alt" id="experience" aria-labelledby="experience-title">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Experience</span>
-      <h2 id="experience-title">Independent Web Developer · 2024 – Present</h2>
-      <p>Self-directed project work for small businesses and personal products, from requirements to deployment.</p>
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience &amp; achievements</span>
+      <h2 id="experience-title">Work and credentials</h2>
     </div>
-    <ul class="check-list">
-      <li>Building and deploying responsive websites and web applications</li>
-      <li>Developing React and TypeScript interfaces</li>
-      <li>Implementing REST APIs and database-backed features</li>
-      <li>Debugging, testing and maintaining repositories and deployments on GitHub Pages and Vercel</li>
-    </ul>
-    <p style="margin-top:1.25rem">Flagship work: BizFlow, a full-stack business management platform — see the <a href="case-studies/bizflow.html">case study</a> and the <a href="#projects">projects</a> above.</p>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <span class="tl-date">2024 – Present</span>
+        <h3>Independent Web Developer</h3>
+        <p>Building and maintaining websites and web applications for small businesses and my own products, from requirements through deployment.</p>
+        <ul class="check-list">
+          <li>Responsive websites and React and TypeScript interfaces</li>
+          <li>REST APIs and database-backed features with Node.js, Express and PostgreSQL</li>
+          <li>Deployments and maintenance on GitHub Pages and Vercel</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Engineering highlights · BizFlow</span>
+        <h3>Verifiable in the repository</h3>
+        <ul class="check-list">
+          <li>28-model PostgreSQL schema with SQL migrations, scoped per organization</li>
+          <li>Automated backend tests (Vitest, Supertest) and Playwright browser tests for access control and tenant isolation</li>
+          <li>GitHub Actions workflow running lint, type checks, tests, builds and Docker image builds</li>
+          <li>Documented security review with the issues it found and fixed</li>
+        </ul>
+        <p style="margin-top:.9rem"><a href="case-studies/bizflow.html#testing">See the testing approach</a> in the case study.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2023 – 2024</span>
+        <h3>1-Year Computer Course, GC University Faisalabad</h3>
+        <p>One-year computer course.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
 <section class="section" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
-    <div class="section-head" style="margin-bottom:0">
+    <div class="section-head reveal">
       <span class="eyebrow">Contact</span>
-      <h2 id="contact-title">Let's Build Something Together.</h2>
-      <p>I’m open to suitable web development opportunities, internships, remote roles and freelance projects.</p>
+      <h2 id="contact-title">Let’s build something together</h2>
+      <p>Hiring for a developer role or planning a web project? Send a message and I’ll reply by email.</p>
     </div>
     <div class="contact-grid">
-      <div class="contact-card primary reveal">
-        <h3>Hiring or recruiting</h3>
-        <p>Email is the best way to reach me about a role.</p>
-        <p class="email-line">khokharunus782@gmail.com</p>
-        <div class="btn-row" style="margin-top:0">
-          <a class="btn btn-primary btn-sm" href="mailto:khokharunus782@gmail.com?subject=Opportunity%20for%20Muhammad%20Younus"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Send an email</a>
-          <button class="btn btn-ghost btn-sm" id="copyEmailBtn" type="button">Copy email</button>
-          <a class="btn btn-ghost btn-sm" data-resume hidden href="assets/resume/Muhammad-Younus-Resume.pdf" download><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Resume</a>
-        </div>
-        <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
-        <p class="link-row"><a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer">LinkedIn profile</a><a href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer">GitHub profile</a></p>
-      </div>
       <div class="contact-card reveal">
-        <h3>Freelance projects</h3>
-        <p>I can build:</p>
-        <ul class="plain">
-          <li>Business websites and landing pages</li>
-          <li>React apps and dashboards</li>
-          <li>WordPress sites with basic SEO</li>
-        </ul>
-        <a class="btn btn-secondary btn-sm" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer"><svg class="ic-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>Message on WhatsApp</a>
+        <h3>Send a message</h3>
+        <form id="contactForm" novalidate>
+          <div class="field-row">
+            <div class="field"><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="field"><label for="cf-subject">Subject</label><input id="cf-subject" name="subject" type="text" placeholder="Role, project or question"></div>
+          <div class="field"><label for="cf-message">Message</label><textarea id="cf-message" name="message" required></textarea></div>
+          <div class="hp" aria-hidden="true"><label>Leave this empty<input name="_gotcha" type="text" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn btn-primary" type="submit" id="cfSubmit"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Send message</button>
+          <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="contact-side">
+        <div class="contact-card reveal">
+          <h3>Email &amp; profiles</h3>
+          <p class="email-line">khokharunus782@gmail.com</p>
+          <div class="btn-row" style="margin-top:1rem">
+            <a class="btn btn-secondary btn-sm" href="mailto:khokharunus782@gmail.com?subject=Opportunity%20for%20Muhammad%20Younus"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Send an email</a>
+            <button class="btn btn-ghost btn-sm" id="copyEmailBtn" type="button">Copy email</button>
+          </div>
+          <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+          <p class="link-row"><a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Prefer chat?</h3>
+          <p>For quick project questions, message me on WhatsApp.</p>
+          <a class="btn btn-ghost btn-sm" href="https://wa.me/923457305226?text=Hi%20Muhammad%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer"><svg class="ic-fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>Message on WhatsApp</a>
+        </div>
       </div>
     </div>
   </div>
@@ -355,14 +364,28 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p style="margin:0">© <span id="year">2026</span> Muhammad Younus · Lahore, Pakistan</p>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:khokharunus782@gmail.com">Email</a>
-      <a href="case-studies/bizflow.html">BizFlow case study</a>
-    </nav>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand" aria-label="Back to top"><span class="brand-mark" aria-hidden="true">MY</span><span>Muhammad Younus</span></a>
+        <p>Full-Stack Web Developer in Lahore, Pakistan, building business applications and websites for clients worldwide.</p>
+      </div>
+      <div class="footer-cols">
+        <nav aria-label="Footer navigation"><h4>Navigate</h4>
+          <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        </nav>
+        <div><h4>Elsewhere</h4>
+          <a href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:khokharunus782@gmail.com">Email</a>
+          <a href="case-studies/bizflow.html">BizFlow case study</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Muhammad Younus. All rights reserved.</p>
+      <p>Built with HTML, CSS and JavaScript.</p>
+    </div>
   </div>
 </footer>
 

@@ -1,128 +1,84 @@
 /* Muhammad Younus — portfolio behaviour. Vanilla JS, no dependencies. */
 (function () {
   'use strict';
+
+  /* ================= SETTINGS YOU CAN EDIT ================= */
+  var CONTACT_EMAIL = 'khokharunus782@gmail.com';
+  /* Contact form endpoint. Create a free form at https://formspree.io (or use any
+     service that accepts a JSON POST) and paste its URL here, e.g.
+     'https://formspree.io/f/xxxxxxxx'. While this is empty, the form opens the
+     visitor's email app with the message pre-filled, so it still works. */
+  var FORM_ENDPOINT = '';
+  var RESUME_AVAILABLE = true; /* PDF lives at assets/resume/Muhammad-Younus-Resume.pdf */
+  /* ========================================================== */
+
   var root = document.documentElement;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- Theme toggle (remembers choice; otherwise follows the OS) ---- */
+  /* ---- Theme toggle (dark by default; remembers the choice) ---- */
   var themeBtn = document.getElementById('themeBtn');
-  function currentTheme() {
-    var t = root.getAttribute('data-theme');
-    if (t) return t;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function syncThemeLabel() {
-    if (!themeBtn) return;
-    themeBtn.setAttribute('aria-label', currentTheme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+  function currentTheme() { return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+  function syncTheme() {
+    var light = currentTheme() === 'light';
+    if (themeBtn) themeBtn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', light ? '#fafaf8' : '#0b0c10');
   }
   if (themeBtn) {
-    syncThemeLabel();
+    syncTheme();
     themeBtn.addEventListener('click', function () {
       var next = currentTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('theme', next); } catch (e) {}
-      syncThemeLabel();
+      syncTheme();
     });
   }
 
   /* ---- Mobile menu ---- */
   var menuBtn = document.getElementById('menuBtn');
-  var navLinks = document.getElementById('navLinks');
+  var menuEl = document.getElementById('navLinks');
   function setMenu(open) {
-    if (!menuBtn || !navLinks) return;
-    navLinks.classList.toggle('open', open);
+    if (!menuBtn || !menuEl) return;
+    menuEl.classList.toggle('open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
     menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   }
-  if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', function () { setMenu(!navLinks.classList.contains('open')); });
-    navLinks.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  if (menuBtn && menuEl) {
+    menuBtn.addEventListener('click', function () { setMenu(!menuEl.classList.contains('open')); });
+    menuEl.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navLinks.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
+      if (e.key === 'Escape' && menuEl.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
     });
     window.addEventListener('resize', function () { if (window.innerWidth > 860) setMenu(false); });
   }
 
-  /* ---- Active section highlighting: ONE source of truth (aria-current).
-     Root cause of the old bug: the Home link points to "#top", and the old
-     code mapped "#top" to null, so Home was never observed and could never
-     become active again. Fix: "#top" now maps to the hero section, so the
-     top of the page is a real observed section like any other. Clicks set
-     the active tab immediately; the observer only takes over once the
-     destination section is reached (or the user scrolls manually), so the
-     two never fight. A scroll-position fallback guarantees Home is active
-     at the very top even on viewports taller than the hero. ---- */
-  function setActive(links, activeLink) {
-    links.forEach(function (a) {
-      if (a === activeLink) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
-  }
-  function sectionTarget(link) {
-    var id = link.getAttribute('href').slice(1);
-    if (!id || id === 'top') return document.querySelector('.hero') || document.body;
-    return document.getElementById(id);
-  }
+  /* ---- Nav border once the page scrolls ---- */
+  var nav = document.getElementById('siteNav');
+  function onScroll() { if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  /* Main nav (home page). Case-study nav links point at ../index.html#...
-     and are intentionally left alone: that page marks Projects active in HTML.
-     NOTE: these are deliberately NOT named navLinks — the mobile-menu code
-     above owns that name for the menu element, and reusing it here used to
-     shadow it and break the mobile menu entirely. */
-  var navEl = document.getElementById('navLinks');
-  var navSpyAnchors = navEl ? Array.prototype.slice.call(navEl.querySelectorAll('a[href^="#"]')) : [];
-  var navPairs = navSpyAnchors.map(function (a) { return { link: a, target: sectionTarget(a) }; })
+  /* ---- Active section highlighting (home page) ---- */
+  var spyLinks = menuEl ? Array.prototype.slice.call(menuEl.querySelectorAll('a[href^="#"]')) : [];
+  var spyPairs = spyLinks.map(function (a) { return { link: a, target: document.getElementById(a.getAttribute('href').slice(1)) }; })
     .filter(function (p) { return p.target; });
-  var homeLink = null;
-  navSpyAnchors.forEach(function (a) { if (a.getAttribute('href') === '#top') homeLink = a; });
-  var scrollingTo = null, scrollingTimer = null;
-  function clearScrollTarget() {
-    scrollingTo = null;
-    if (scrollingTimer) { clearTimeout(scrollingTimer); scrollingTimer = null; }
-    syncTop();
+  function setActive(link) {
+    spyLinks.forEach(function (a) { if (a === link) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
   }
-  function syncTop() {
-    if (!scrollingTo && homeLink && window.scrollY <= 10) setActive(navSpyAnchors, homeLink);
-  }
-  if (navPairs.length) {
-    navSpyAnchors.forEach(function (a) {
-      a.addEventListener('click', function () {
-        setActive(navSpyAnchors, a);
-        scrollingTo = a.getAttribute('href').slice(1) || 'top';
-        if (scrollingTimer) clearTimeout(scrollingTimer);
-        scrollingTimer = setTimeout(clearScrollTarget, 2000);
+  if (spyPairs.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        spyPairs.forEach(function (p) { if (p.target === en.target) setActive(p.link); });
       });
-    });
-    /* Manual scrolling cancels a click-driven scroll: the observer resumes. */
-    window.addEventListener('wheel', clearScrollTarget, { passive: true });
-    window.addEventListener('touchmove', clearScrollTarget, { passive: true });
-    window.addEventListener('keydown', function (e) {
-      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].indexOf(e.key) !== -1) clearScrollTarget();
-    });
-    if ('IntersectionObserver' in window) {
-      var navSpy = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          var pair = null;
-          navPairs.forEach(function (p) { if (p.target === en.target) pair = p; });
-          if (!pair) return;
-          var id = pair.link.getAttribute('href').slice(1) || 'top';
-          if (scrollingTo && scrollingTo !== id) return; /* still travelling: wait */
-          if (scrollingTo === id) clearScrollTarget();
-          setActive(navSpyAnchors, pair.link);
-        });
-      }, { rootMargin: '-30% 0px -65% 0px' });
-      navPairs.forEach(function (p) { navSpy.observe(p.target); });
-    }
-    window.addEventListener('scroll', syncTop, { passive: true });
-    syncTop();
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    spyPairs.forEach(function (p) { spy.observe(p.target); });
+    window.addEventListener('scroll', function () { if (window.scrollY < 120) setActive(null); }, { passive: true });
   }
 
-  /* Table of contents (case study page only). */
+  /* ---- Table of contents (case study page) ---- */
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll('[data-spy] a[href^="#"]'));
-  var tocTargets = tocLinks
-    .map(function (a) { var id = a.getAttribute('href').slice(1); return id ? document.getElementById(id) : null; })
-    .filter(Boolean);
+  var tocTargets = tocLinks.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
   if ('IntersectionObserver' in window && tocTargets.length) {
     var tocSpy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -136,7 +92,7 @@
     tocTargets.forEach(function (t) { tocSpy.observe(t); });
   }
 
-  /* ---- Reveal on scroll (content is visible by default without JS) ---- */
+  /* ---- Scroll reveal (content is visible by default without JS) ---- */
   var reveals = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
     reveals.forEach(function (el) { el.classList.add('in'); });
@@ -152,24 +108,53 @@
   var copyStatus = document.getElementById('copyStatus');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
-      var email = 'khokharunus782@gmail.com';
       function done(ok) {
-        if (copyStatus) copyStatus.textContent = ok ? 'Email address copied.' : 'Copy failed. Please copy it manually: ' + email;
+        if (copyStatus) copyStatus.textContent = ok ? 'Email address copied.' : 'Copy failed. Please copy it manually: ' + CONTACT_EMAIL;
         setTimeout(function () { if (copyStatus) copyStatus.textContent = ''; }, 4000);
       }
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
+        navigator.clipboard.writeText(CONTACT_EMAIL).then(function () { done(true); }, function () { done(false); });
       } else { done(false); }
     });
   }
 
-  /* ---- Resume: shown only when a real PDF has been added ----
-     1. Put the PDF at assets/resume/Muhammad-Younus-Resume.pdf
-     2. Change RESUME_AVAILABLE to true.                                  */
-  var RESUME_AVAILABLE = true;
-  if (RESUME_AVAILABLE) {
-    document.querySelectorAll('[data-resume]').forEach(function (el) { el.hidden = false; });
+  /* ---- Contact form ---- */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    var statusEl = document.getElementById('cfStatus');
+    var submitBtn = document.getElementById('cfSubmit');
+    function say(msg, kind) { statusEl.textContent = msg; statusEl.className = 'form-status' + (kind ? ' ' + kind : ''); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = form.elements;
+      if (f._gotcha && f._gotcha.value) return; /* spam trap */
+      var name = f.name.value.trim(), email = f.email.value.trim(), subject = f.subject.value.trim(), message = f.message.value.trim();
+      if (!name || !message) { say('Please enter your name and a message.', 'err'); (name ? f.message : f.name).focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Please enter a valid email address so I can reply.', 'err'); f.email.focus(); return; }
+      var subj = subject || 'Message from ' + name;
+
+      if (!FORM_ENDPOINT) {
+        var body = message + '\n\n— ' + name + ' (' + email + ')';
+        window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+        say('Opening your email app with the message ready to send.', 'ok');
+        return;
+      }
+      submitBtn.disabled = true; say('Sending…');
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name: name, email: email, subject: subj, message: message })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('bad status');
+        form.reset(); say('Thanks, your message was sent. I’ll reply by email.', 'ok');
+      }).catch(function () {
+        say('The message could not be sent. Please email ' + CONTACT_EMAIL + ' directly.', 'err');
+      }).then(function () { submitBtn.disabled = false; });
+    });
   }
+
+  /* ---- Resume links ---- */
+  if (RESUME_AVAILABLE) document.querySelectorAll('[data-resume]').forEach(function (el) { el.hidden = false; });
 
   /* ---- Footer year ---- */
   var y = document.getElementById('year');
