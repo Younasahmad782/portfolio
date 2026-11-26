@@ -26,7 +26,7 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menuEl.classList.contains('open')) { setMenu(false); menuBtn.focus(); }
     });
-    window.addEventListener('resize', function () { if (window.innerWidth > 860) setMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 960) setMenu(false); });
   }
 
   /* Nav border on scroll */
@@ -73,6 +73,37 @@
     tocTargets.forEach(function (t) { tocSpy.observe(t); });
   }
 
+  /* Scroll progress bar */
+  var bar = document.getElementById('progress');
+  if (bar) {
+    var ticking = false;
+    var upd = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  }
+
+  /* Scroll reveal with stagger (content is visible without JS) */
+  var revealSel = '.section-head, .featured, .card, .service, .skill-group, .step, .why, .cert, .cert-note, .about-photo, .about-copy, .contact-card, .cs-body section, .cs-hero .shot';
+  var items = Array.prototype.slice.call(document.querySelectorAll(revealSel));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  items.forEach(function (el) {
+    var sibs = Array.prototype.filter.call(el.parentNode.children, function (n) { return n.matches(revealSel); });
+    el.style.setProperty('--d', Math.min(sibs.indexOf(el), 4));
+    el.classList.add('reveal');
+  });
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
   /* BizFlow preview switcher */
   var previewImg = document.getElementById('previewImg');
   var previewCap = document.getElementById('previewCap');
@@ -101,9 +132,17 @@
         setTimeout(function () { copyStatus.textContent = ''; }, 4000);
       }
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(CONTACT_EMAIL).then(function () { done(true); }, function () { done(false); });
-      } else { done(false); }
+        navigator.clipboard.writeText(CONTACT_EMAIL).then(function () { done(true); }, function () { done(legacyCopy()); });
+      } else { done(legacyCopy()); }
     });
+  }
+  function legacyCopy() {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = CONTACT_EMAIL; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.appendChild(ta); ta.select();
+      var ok = document.execCommand('copy'); document.body.removeChild(ta); return ok;
+    } catch (e) { return false; }
   }
 
   /* Contact form */
