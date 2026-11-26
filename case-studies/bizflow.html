@@ -5,58 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BizFlow Case Study | Muhammad Younus</title>
 <meta name="description" content="Case study of BizFlow, a multi-tenant business management platform built with React, TypeScript, Node.js, Express, PostgreSQL and Prisma: architecture, security, testing and lessons learned.">
-<link rel="canonical" href="https://younasahmad782.github.io/portfolio/case-studies/bizflow.html">
-<meta name="theme-color" content="#0b0c10">
+<link rel="canonical" href="https://younasahmad782.github.io/portfolio/case-studies/bizflow">
+<meta name="theme-color" content="#0a1022">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BizFlow Case Study | Muhammad Younus">
 <meta property="og:description" content="A multi-tenant business management platform: architecture, security, testing and lessons learned.">
-<meta property="og:url" content="https://younasahmad782.github.io/portfolio/case-studies/bizflow.html">
+<meta property="og:url" content="https://younasahmad782.github.io/portfolio/case-studies/bizflow">
 <meta property="og:image" content="https://younasahmad782.github.io/portfolio/assets/img/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650&family=Inter:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../assets/css/styles.css">
-<script>
-  (function () {
-    var d = document.documentElement; d.classList.add('js');
-    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') d.setAttribute('data-theme', t); } catch (e) {}
-  })();
-</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body id="top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-ext" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
-  <symbol id="i-whatsapp" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8h-.1c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C4.6 9.2 9.4 4.4 16 4.4S27.4 9.2 27.4 15.8 22.6 27.8 16 27.8zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-1.1-1.2-1.5-.3-.4-.4-.9-.2-1.2.1-.3.7-.3 1.6-.3h.6c.2 0 .5 0 .7.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.4-.3.6l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.3 1.1.3.2.5.2.7.1.2 0 .7-.3 1-1.2.1-.3.1-.5 0-.6 0-.2-.2-.2-.5-.4z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 2 6.5L4 29l7.7-2c1.8 1 3.9 1.6 6.1 1.6h.1c6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8h-.1c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.4-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.7C4.6 9.2 9.4 4.4 16 4.4S27.4 9.2 27.4 15.8 22.6 27.8 16 27.8zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-1-1.7-2.1-1.9-2.5-.2-.3 0-.5.2-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-1.1-1.2-1.5-.3-.4-.4-.9-.2-1.2.1-.3.7-.3 1.6-.3h.6c.2 0 .5 0 .7.6.3.7 1 2.4 1 2.6.1.2.1.4 0 .6-.1.2-.1.4-.3.6l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1.2-.2.9-1 1.1-1.4.2-.4.5-.3.8-.2.3.1 2 1 2.3 1.1.3.2.5.2.7.1.2 0 .7-.3 1-1.2.1-.3.1-.5 0-.6 0-.2-.2-.2-.5-.4z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 20V9"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
 </svg>
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="site-nav" id="siteNav">
   <div class="wrap nav-inner">
     <a href="../index.html" class="brand" aria-label="Muhammad Younus, home"><span class="brand-mark" aria-hidden="true">MY</span><span>Muhammad Younus</span></a>
+    <span class="nav-spacer"></span>
     <nav aria-label="Primary">
       <ul class="nav-links" id="navLinks">
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#top">Home</a></li>
         <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
         <li><a href="../index.html#services">Services</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#about">About</a></li>
         <li><a href="../index.html#contact">Contact</a></li>
+        <li class="nav-cta-item"><a href="../index.html#contact">Let’s Work Together</a></li>
       </ul>
     </nav>
-    <button class="icon-btn theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
-      <svg class="ic i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-      <svg class="ic i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-    </button>
-    <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <a class="btn btn-primary btn-sm nav-cta" href="../index.html#contact">Let’s Work Together</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg>
     </button>
   </div>
@@ -64,8 +60,8 @@
 
 <main id="main">
   <div class="wrap cs-hero">
-    <p><a href="../index.html#projects">← All projects</a></p>
-    <span class="status">Source-code project · public demo not deployed yet</span>
+    <p><a class="back" href="../index.html#projects">← All projects</a></p>
+    <span class="tag">Full-stack web application</span>
     <h1>BizFlow: a multi-tenant business management platform</h1>
     <p class="lead">A full-stack application for small and medium businesses in Pakistan, covering customers, inventory, orders, invoices, expenses and employees, with every record scoped to an organization.</p>
     <dl class="cs-meta">
@@ -75,7 +71,7 @@
       <div><dt>Data</dt><dd>PostgreSQL with Prisma</dd></div>
     </dl>
     <div class="btn-row">
-      <a class="btn btn-primary btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View source on GitHub</a>
+      <a class="btn btn-secondary btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>Source Code</a>
     </div>
   </div>
 
@@ -100,7 +96,7 @@
       <section id="overview">
         <h2>Overview</h2>
         <p>BizFlow manages the day-to-day records of a small business: customers, products and stock, suppliers, orders, invoices, payments, expenses, employees, notifications and an audit trail. Each business is an <em>organization</em>, and every piece of data belongs to exactly one of them. Users sign in, work inside their organization, and see only what their role allows.</p>
-        <div class="callout"><strong>Status:</strong> feature-complete and tested locally, but not publicly deployed. There is no live demo, so this page uses screenshots taken from the running app with fictional seeded data.</div>
+        <div class="callout"><strong>Status:</strong> the screenshots on this page were captured from the running app with fictional seeded data.</div>
       </section>
 
       <section id="problem">
@@ -273,11 +269,10 @@
           <li>Connect a real email provider for password resets.</li>
           <li>Add a Redis adapter for Socket.IO and move file uploads to object storage before running more than one API instance.</li>
           <li>Add an Urdu interface; the language setting already exists but the UI is English only.</li>
-          <li>Deploy a public demo so recruiters can try the app.</li>
-        </ul>
+                  </ul>
         <div class="btn-row">
-          <a class="btn btn-primary btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>View source on GitHub</a>
-          <a class="btn btn-ghost btn-sm" href="../index.html#contact">Get in touch</a>
+          <a class="btn btn-primary btn-sm" href="../index.html#contact">Get in Touch</a>
+          <a class="btn btn-secondary btn-sm" href="https://github.com/Younasahmad782/BizFlow" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>Source Code</a>
         </div>
       </section>
     </div>
@@ -287,7 +282,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-bottom" style="border-top:0;padding-top:0">
-      <p>© <span id="year">2026</span> Muhammad Younus · Full-Stack Web Developer, Lahore</p>
+      <p>© <span id="year">2026</span> Muhammad Younus · Full Stack Web Developer, Lahore</p>
       <p><a href="../index.html">Home</a> · <a href="https://github.com/Younasahmad782" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://www.linkedin.com/in/muhammad-younus-b658b6275" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </div>
   </div>
